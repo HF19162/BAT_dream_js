@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>贪食蛇</title>
+  <style>
+  #gameCanvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #score {
+    text-align: center;
+    font-size: 70px;
+    font-family: serif;
+  }
+  </style>
+</head>
+<body>
+  <div id="score">0</div>
+  <canvas id="gameCanvas" width="300" height="300"></canvas>
+  <script>
+  let snake = [
+    {x: 150, y: 150},
+    {x: 140, y: 150},
+    {x: 130, y: 150},
+    {x: 120, y: 150},
+    {x: 110, y: 150},
+  ];
+
+  const gameCanvas = document.getElementById('gameCanvas');
+  // 绘制上下文环境  api 在ctx上
+  const ctx = gameCanvas.getContext('2d');
+  ctx.fillStyle = 'white';
+  ctx.strokeStyle = 'black';
+  ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
+  ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height);
+
+  // 初始绘制蛇
+  drawSnake();
+
+  function drawSnake() {
+    snake.forEach(drawSnakePart);
+  }
+  function drawSnakePart(part) {
+    ctx.fillStyle = 'lightgreen';
+    ctx.strokeStyle = 'darkgreen';
+    ctx.fillRect(part.x, part.y, 10, 10);
+    ctx.strokeRect(part.x, part.y, 10, 10);
+  }
+  
+  // 蛇？ 身子是几个rect 位置 坐标 
+  
+
+  </script>
+</body>
+</html>
